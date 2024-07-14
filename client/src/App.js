@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { CssBaseline } from '@mui/material/CssBaseline';
+import CssBaseline from '@mui/material/CssBaseline';
 import Login from './components/Login';
 import Register from './components/Register';
 import Dashboard from './components/Dashboard';
@@ -18,9 +18,25 @@ const theme = createTheme({
     secondary: {
       main: '#f48fb1',
     },
+    error: {
+      main: '#f44336',
+    },
+    warning: {
+      main: '#ffa726',
+    },
+    info: {
+      main: '#29b6f6',
+    },
+    success: {
+      main: '#66bb6a',
+    },
     background: {
       default: '#121212',
       paper: '#1e1e1e',
+    },
+    text: {
+      primary: '#ffffff',
+      secondary: '#b0bec5',
     },
   },
   typography: {

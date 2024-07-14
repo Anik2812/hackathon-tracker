@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { TextField, Button, Typography, Container, Box } from '@mui/material'; // Updated import
+import { TextField, Button, Typography, Container, Box } from '@mui/material';
 import axios from 'axios';
 
 const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await axios.post('/api/auth/register', { username, password });
-      history('/');
+      navigate('/');
     } catch (err) {
       setError('Error registering user');
     }

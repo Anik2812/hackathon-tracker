@@ -25,6 +25,19 @@ router.post('/', auth, async (req, res) => {
   }
 });
 
+// Get a single hackathon by ID
+router.get('/:id', auth, async (req, res) => {
+  try {
+    const hackathon = await Hackathon.findOne({ _id: req.params.id, userId: req.user.userId });
+    if (!hackathon) {
+      return res.status(404).json({ message: 'Hackathon not found' });
+    }
+    res.json(hackathon);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching hackathon', error: error.message });
+  }
+});
+
 // Update a hackathon
 router.put('/:id', auth, async (req, res) => {
   try {
@@ -41,6 +54,7 @@ router.put('/:id', auth, async (req, res) => {
     res.status(500).json({ message: 'Error updating hackathon', error: error.message });
   }
 });
+
 
 // Delete a hackathon
 router.delete('/:id', auth, async (req, res) => {

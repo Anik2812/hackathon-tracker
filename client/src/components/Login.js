@@ -7,7 +7,7 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate(); // Updated to navigate
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,7 +15,7 @@ const Login = () => {
       const res = await axios.post('/api/auth/login', { username, password });
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('userId', res.data.userId);
-      navigate('/dashboard'); // Updated to navigate
+      navigate('/dashboard');
     } catch (err) {
       setError(err.response?.data?.message || 'Error logging in');
     }
