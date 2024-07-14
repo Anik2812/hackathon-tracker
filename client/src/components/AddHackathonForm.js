@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, Button, Box } from '@mui/material'; // Updated import
+import { TextField, Button, Box, FormControlLabel, Switch } from '@mui/material';
 
 const AddHackathonForm = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
@@ -11,10 +11,15 @@ const AddHackathonForm = ({ onSubmit }) => {
     awards: '',
     repositoryLink: '',
     demoLink: '',
+    won: false,
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value, type, checked } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === 'checkbox' ? checked : value
+    });
   };
 
   const handleSubmit = (e) => {
@@ -29,11 +34,23 @@ const AddHackathonForm = ({ onSubmit }) => {
       awards: '',
       repositoryLink: '',
       demoLink: '',
+      won: false,
     });
   };
 
   return (
     <Box component="form" onSubmit={handleSubmit} mt={2}>
+      <FormControlLabel
+        control={
+          <Switch
+            checked={formData.won}
+            onChange={handleChange}
+            name="won"
+            color="primary"
+          />
+        }
+        label="Won the Hackathon"
+      />
       <TextField
         fullWidth
         margin="normal"
@@ -85,7 +102,7 @@ const AddHackathonForm = ({ onSubmit }) => {
         fullWidth
         margin="normal"
         name="awards"
-        label="Awards (comma-separated)"
+        label="Awards"
         value={formData.awards}
         onChange={handleChange}
       />
@@ -105,9 +122,11 @@ const AddHackathonForm = ({ onSubmit }) => {
         value={formData.demoLink}
         onChange={handleChange}
       />
-      <Button type="submit" variant="contained" color="primary" fullWidth>
-        Add Hackathon
-      </Button>
+      <Box mt={2}>
+        <Button type="submit" variant="contained" color="primary">
+          Add Hackathon
+        </Button>
+      </Box>
     </Box>
   );
 };

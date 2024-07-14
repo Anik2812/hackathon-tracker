@@ -55,4 +55,15 @@ router.delete('/:id', auth, async (req, res) => {
   }
 });
 
+// Get hackathon statistics
+router.get('/stats', auth, async (req, res) => {
+  try {
+    const totalHackathons = await Hackathon.countDocuments({ userId: req.user.userId });
+    const wonHackathons = await Hackathon.countDocuments({ userId: req.user.userId, won: true });
+    res.json({ total: totalHackathons, won: wonHackathons });
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching hackathon statistics', error: error.message });
+  }
+});
+
 module.exports = router;

@@ -10,6 +10,7 @@ const hackathonSchema = new mongoose.Schema({
   awards: [String],
   repositoryLink: String,
   demoLink: String,
+  won: { type: Boolean, default: false },
 });
 
 module.exports = mongoose.model('Hackathon', hackathonSchema);
