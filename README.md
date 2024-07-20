@@ -1,45 +1,105 @@
-# Hackathon Tracker
+# 🏆 Hackathon Participation Tracker
 
-## Inspiration
+<p align="center">
+  <img src="https://your-image-url-here.com/hackathon-tracker-logo.png" alt="Hackathon Tracker Logo" width="200"/>
+</p>
 
-We were inspired to create **Hackathon Tracker** by the need for a simple tool to monitor and visualize our hackathon experiences. We wanted a way to keep track of our progress, celebrate wins, and learn from our losses.
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#demo">Demo</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#usage">Usage</a> •
+  <a href="#technologies">Technologies</a> •
+  <a href="#contributing">Contributing</a> •
+  <a href="#license">License</a>
+</p>
 
-## What it does
+<p align="center">
+  <img src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+  <img src="https://img.shields.io/badge/node-%3E%3D%2012.0.0-green.svg" />
+  <img src="https://img.shields.io/badge/npm-%3E%3D%206.0.0-green.svg" />
+  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" />
+  <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" />
+</p>
 
-**Hackathon Tracker** is a web app that allows users to log their hackathon events, track which ones they’ve won or lost, and view their success rate through an interactive pie chart. It’s designed to help users stay motivated and organized throughout their hackathon journey.
+## 🚀 Features
 
-## How we built it
+- 👤 User authentication (register, login, logout)
+- 📝 CRUD operations for hackathon entries
+- 🖼️ Profile picture upload and display
+- 🏅 Hackathon win status tracking
+- 📊 Interactive pie chart of won vs. total hackathons
+- 🔍 Detailed view for each hackathon entry
+- 📱 Responsive design for seamless mobile experience
 
-We built Hackathon Tracker using modern web technologies:
-- **Frontend:** HTML, CSS, and JavaScript
-- **Backend:** Node.js with Express
-- **Data Visualization:** Chart.js for the interactive pie chart
-- **DataBase:** MongoDB to store user data, profile pictures and hackathons
 
-The frontend provides a clean and user-friendly interface, while the backend handles data management and API requests.
+## 🛠️ Installation
 
-## Challenges we ran into
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/Anik2812/hackathon-tracker.git
+   cd hackathon-tracker
+   ```
 
-- **Data Visualization:** Ensuring the pie chart accurately reflected wins and losses required careful data handling and Chart.js configuration.
-- **User Interface Design:** Balancing functionality with visual appeal was challenging, but we aimed for a design that was both effective and engaging.
+2. Install backend dependencies:
+   `npm install`
 
-## Accomplishments that we’re proud of
+3. Install frontend dependencies:
+  `cd client
+   npm install`
 
-We’re proud of creating an intuitive and visually appealing app that effectively tracks hackathon events and provides meaningful insights through a pie chart. The seamless user experience and data management features are key accomplishments.
+4. Create a `.env` file in the root directory and add the following:
+   `MONGODB_URI=your_mongodb_connection_string
+    JWT_SECRET=your_jwt_secret
+    PORT=5000`
 
-## What we learned
+## Running the Application
 
-We learned valuable lessons in data visualization, user interface design, and integrating frontend and backend technologies. We also gained insights into how to manage and present data effectively.
+1. Start the backend server:
+   node server.js
+   
+2. In a new terminal, start the frontend development server:
+   `cd client
+   npm start`
 
-## What’s next for Hackathon Tracker
+3. Open your browser and navigate to `http://localhost:3000`
 
-We plan to add features like event reminders, performance analytics, and user profiles. We also aim to enhance the app with more interactive elements and explore opportunities for community engagement.
+## API Endpoints
 
-## Getting Started
+- POST /api/auth/register - Register a new user
+- POST /api/auth/login - Login a user
+- GET /api/hackathons - Get all hackathons for the logged-in user
+- POST /api/hackathons - Add a new hackathon
+- PUT /api/hackathons/:id - Update a hackathon
+- DELETE /api/hackathons/:id - Delete a hackathon
+- GET /api/hackathons/stats - Get hackathon statistics
+- GET /api/user/profile - Get user profile
+- POST /api/user/upload-image - Upload user profile image
 
-To get started with Hackathon Tracker, clone the repository and follow the setup instructions below.
+## 🔧 Technologies
 
-### Prerequisites
+### Backend
+* Node.js
+* Express.js
+* MongoDB with Mongoose
+* JSON Web Tokens (JWT)
+* Multer
 
-- Node.js
-- npm
+### Frontend
+* React.js
+* Material-UI
+* Axios
+* React Router
+* Chart.js
+
+
+## 👏 Acknowledgements
+
+* React.js
+* Material-UI
+* Node.js
+* Express.js
+* MongoDB
+
+<p align="center"> Made by Anik </p>
+ 
